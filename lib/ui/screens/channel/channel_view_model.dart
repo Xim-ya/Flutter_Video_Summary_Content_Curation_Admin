@@ -1,9 +1,25 @@
 import 'package:video_curation_admin/utils/index.dart';
 
 class ChannelViewModel extends BaseViewModel {
-  final tempData = "aim";
-
   final db = FirebaseFirestore.instance;
+
+  /* 전역변수 및 객체 */
+  final List<String> dropDownValue = ["Yes", "Nop"];
+  final RxString selectedDropDownValue = "Yes".obs;
+
+  /* 컨트롤러 */
+  final TextEditingController channelIdFormController = TextEditingController();
+
+  /* Intent */
+  // Drop Down Option 변경
+  void changeDropDownValue(String? option) {
+    selectedDropDownValue.value = option!;
+  }
+
+  // 채널 ID가 Submit 되었을 때
+  void onChannelIdSubmitted() {
+    print(channelIdFormController.value.text);
+  }
 
   // 채널 최초 등록
   Future<void> addNewChannel() async {

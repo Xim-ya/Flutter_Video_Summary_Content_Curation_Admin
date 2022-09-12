@@ -14,7 +14,7 @@ class MyApp extends StatelessWidget {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Admin',
-      initialRoute: Routes.root,
+      initialRoute: Routes.tabs,
       getPages: AppPages.routes,
       initialBinding: AppBinding(),
       theme: ThemeData(
