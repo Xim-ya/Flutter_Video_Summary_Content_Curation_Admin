@@ -42,7 +42,9 @@ class TabsScreen extends BaseScreen<TabsViewModel> {
           ),
           const VerticalDivider(thickness: 1, width: 1),
           Obx(
-            () => Expanded(child: routeScreenList[vm.selectedIndex.value]),
+            () => Expanded(
+              child: routeScreenList[vm.selectedIndex.value],
+            ),
           ),
         ],
       ),
