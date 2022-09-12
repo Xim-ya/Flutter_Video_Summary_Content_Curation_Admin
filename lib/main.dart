@@ -1,8 +1,3 @@
-import 'package:flutter/material.dart';
-import 'package:video_curation_admin/app/di/app_binding.dart';
-import 'package:video_curation_admin/app/routes/app_pages.dart';
-import 'package:video_curation_admin/app/routes/app_routes.dart';
-import 'package:video_curation_admin/ui/screens/root/root_screen.dart';
 import 'package:video_curation_admin/utils/index.dart';
 
 void main() {
@@ -16,6 +11,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       initialRoute: Routes.root,
       getPages: AppPages.routes,
