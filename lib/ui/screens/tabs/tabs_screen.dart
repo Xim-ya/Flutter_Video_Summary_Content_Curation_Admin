@@ -1,8 +1,8 @@
 import 'package:video_curation_admin/ui/screens/channel/channel_screen.dart';
 import 'package:video_curation_admin/utils/index.dart';
 
-class RootScreen extends BaseScreen<RootViewModel> {
-  const RootScreen({Key? key}) : super(key: key);
+class TabsScreen extends BaseScreen<TabsViewModel> {
+  const TabsScreen({Key? key}) : super(key: key);
 
   @override
   Widget buildScreen(BuildContext context) {

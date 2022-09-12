@@ -1,6 +1,6 @@
 import 'package:video_curation_admin/utils/index.dart';
 
-class RootViewModel extends BaseViewModel {
+class TabsViewModel extends BaseViewModel {
   /* 전역 변수 및 객체 */
   RxInt selectedIndex = 0.obs;
   bool showLeading = false;

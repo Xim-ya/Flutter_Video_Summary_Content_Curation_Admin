@@ -5,6 +5,10 @@ class ChannelScreen extends BaseScreen<ChannelViewModel> {
 
   @override
   Widget buildScreen(BuildContext context) {
-    return Container();
+    return Container(
+      child: Center(
+        child: Text(vm.tempData),
+      ),
+    );
   }
 }
