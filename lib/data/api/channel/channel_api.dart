@@ -1,8 +1,6 @@
-import 'package:video_curation_admin/utils/index.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 
-class ChannelViewModel extends BaseViewModel {
-  final tempData = "aim";
-
+class ChannelApi {
   final db = FirebaseFirestore.instance;
 
   // 채널 최초 등록
@@ -10,10 +8,5 @@ class ChannelViewModel extends BaseViewModel {
     Map<String, dynamic> jsonData = {"string": "tempData"};
     final docRef = db.collection("channels");
     docRef.doc("customId").set(jsonData);
-  }
-
-  @override
-  void onInit() {
-    addNewChannel();
   }
 }
