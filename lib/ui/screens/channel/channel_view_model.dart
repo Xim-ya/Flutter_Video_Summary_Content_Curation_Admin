@@ -8,9 +8,10 @@ class ChannelViewModel extends BaseViewModel {
   /// State Variables
   final List<String> dropDownValue = ["Yes", "Nop"];
   final RxString selectedDropDownValue = "Yes".obs;
+  final RxBool tempState = false.obs;
 
   /// DataVariables
-  final Rxn<ContentModel> selectedContentInfo = Rxn(null);
+  final Rxn<ContentModel> selectedContentInfo = Rxn();
 
   /* 컨트롤러 */
   final TextEditingController channelIdFormController = TextEditingController();

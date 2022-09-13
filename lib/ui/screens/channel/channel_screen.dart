@@ -1,6 +1,6 @@
 import 'package:video_curation_admin/ui/common/widget/mapped_row_container.dart';
 import 'package:video_curation_admin/ui/common/widget/outlined_text_form_field.dart';
-import 'package:video_curation_admin/ui/common/widget/round_cached_img_container.dart';
+import 'package:video_curation_admin/ui/common/widget/circle_cached_img_container.dart';
 import 'package:video_curation_admin/utils/index.dart';
 
 class ChannelScreen extends BaseScreen<ChannelViewModel> {
@@ -37,7 +37,7 @@ class ChannelScreen extends BaseScreen<ChannelViewModel> {
                 style: AppTextStyle.headline1,
               ),
               AppSpace.size16,
-              const RoundCachedImgContainer(
+              const CircleCachedImgContainer(
                 imgUrl:
                     'https://yt3.ggpht.com/ytc/AMLnZu9tKXzVPuAGTdZ-jfWmuDYRcZwKZlOm6GWpduKnvg=s240-c-k-c0x00ffffff-no-rj',
               ),
@@ -92,10 +92,12 @@ class ChannelScreen extends BaseScreen<ChannelViewModel> {
             ],
           ),
           AppSpace.size16,
-          vm.selectedContentInfo.value != null
-              ? MappedRowContainer(
-                  title: "제목", data: vm.selectedContentInfo.value!.title)
-              : const SizedBox(),
+          Obx(
+            () => vm.selectedContentInfo.value != null
+                ? MappedRowContainer(
+                    title: "제목", data: vm.selectedContentInfo.value!.title)
+                : const SizedBox(),
+          )
         ],
       ),
     );

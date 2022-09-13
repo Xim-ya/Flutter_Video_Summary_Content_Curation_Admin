@@ -1,7 +1,7 @@
 import 'package:video_curation_admin/utils/index.dart';
 
-class RoundCachedImgContainer extends StatelessWidget {
-  const RoundCachedImgContainer({Key? key, required this.imgUrl, this.size})
+class CircleCachedImgContainer extends StatelessWidget {
+  const CircleCachedImgContainer({Key? key, required this.imgUrl, this.size})
       : super(key: key);
 
   final String imgUrl;
