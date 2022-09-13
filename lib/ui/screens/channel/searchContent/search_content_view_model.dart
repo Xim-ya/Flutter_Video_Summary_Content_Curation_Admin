@@ -29,6 +29,13 @@ class SearchContentViewModel extends BaseViewModel {
     loading(false);
   }
 
+  // 선택된 영화 정보를 ChannelVM에 속해는 변수에 저장
+  void passMovieDataPassedLayer() {
+    print("데이터");
+    ChannelViewModel.to.selectedContentInfo.value =
+        contentSearchList.value![selectedContentIndex!.value];
+  }
+
   /// Newtworking Methods
   // 검색된 영화 리스트 호출
   Future<void> loadMovieSearchList() async {

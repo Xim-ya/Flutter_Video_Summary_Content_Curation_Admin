@@ -12,9 +12,14 @@ class ChannelScreen extends BaseScreen<ChannelViewModel> {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
-          Text(
-            "새로운 채널 등록하기",
-            style: AppTextStyle.sectionTitle1,
+          GestureDetector(
+            onTap: () {
+              print(vm.selectedContentInfo.value?.title ?? "제목 없음");
+            },
+            child: Text(
+              "새로운 채널 등록하기",
+              style: AppTextStyle.sectionTitle1,
+            ),
           ),
           AppSpace.size28,
           /* Channel Id Input Form */
@@ -86,6 +91,11 @@ class ChannelScreen extends BaseScreen<ChannelViewModel> {
                   child: const Text("검색"))
             ],
           ),
+          AppSpace.size16,
+          vm.selectedContentInfo.value != null
+              ? MappedRowContainer(
+                  title: "제목", data: vm.selectedContentInfo.value!.title)
+              : const SizedBox(),
         ],
       ),
     );

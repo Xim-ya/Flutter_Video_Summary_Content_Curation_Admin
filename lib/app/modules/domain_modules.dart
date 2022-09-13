@@ -6,6 +6,6 @@ import '../../utils/index.dart';
 abstract class DomainModules {
   static void dependencies() {
     Get.lazyPut(() => LoadMovieSearchedListUseCase(Get.find()), fenix: true);
-    Get.lazyPut(() => TmdbRepository(Get.find()));
+    Get.lazyPut(() => TmdbRepository(Get.find()), fenix: true);
   }
 }

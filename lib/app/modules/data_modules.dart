@@ -7,7 +7,7 @@ abstract class DataModules {
 
   static void dependencies() {
     // API
-    Get.lazyPut(() => TmdbApi(Dio()));
-    Get.lazyPut(() => TmdbRemoteDataSource(Get.find()));
+    Get.lazyPut(() => TmdbApi(Dio()), fenix: true);
+    Get.lazyPut(() => TmdbRemoteDataSource(Get.find()), fenix: true);
   }
 }

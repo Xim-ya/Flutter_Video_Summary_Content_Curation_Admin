@@ -10,7 +10,12 @@ class SearchContentScreen extends BaseScreen<SearchContentViewModel> {
   Widget buildScreen(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("컨텐츠 검색"),
+        title: const Text("컨텐츠 검색"),
+        actions: [
+          IconButton(
+              onPressed: vm.passMovieDataPassedLayer,
+              icon: const Icon(Icons.save))
+        ],
       ),
       body: Center(
         child: Container(
@@ -43,7 +48,7 @@ class SearchContentScreen extends BaseScreen<SearchContentViewModel> {
                                     color: vm.selectedContentIndex != null &&
                                             index ==
                                                 vm.selectedContentIndex?.value
-                                        ? Colors.blue.withOpacity(0.4)
+                                        ? Colors.grey.withOpacity(0.2)
                                         : Colors.transparent,
                                     borderRadius: BorderRadius.circular(12)),
                                 width: 500,
