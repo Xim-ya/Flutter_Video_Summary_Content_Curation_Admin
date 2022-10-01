@@ -10,9 +10,11 @@ class ContentModel {
   final String? releaseDate;
   final num voteAverage;
   final List<int>? genreIds;
+  late String? type;
   final List<String>? youtubeVideoIds; // custom
 
   ContentModel({
+    this.type,
     required this.adult,
     required this.backDropUrl,
     required this.posterUrl,
@@ -39,5 +41,6 @@ class ContentModel {
         posterUrl: response.poster_path,
         genreIds: response.genre_ids,
         youtubeVideoIds: null,
+        type: null,
       );
 }

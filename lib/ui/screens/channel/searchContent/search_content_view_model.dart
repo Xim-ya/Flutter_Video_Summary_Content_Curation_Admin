@@ -6,7 +6,9 @@ import 'package:video_curation_admin/utils/index.dart';
 
 class SearchContentViewModel extends BaseViewModel {
   SearchContentViewModel(this._loadMovieSearchedList);
+
   /* 전역 변수 및 객체 */
+
   /// Data Variables
   final Rxn<List<ContentModel>> contentSearchList = Rxn();
 
@@ -21,6 +23,7 @@ class SearchContentViewModel extends BaseViewModel {
       TextEditingController();
 
   /* Intent */
+
   /// UI Interaction Methods
   // 검색된 결과 리스트 아이템이 선택 되었을 때
   void onSearchItemTapped(int index) {
@@ -31,9 +34,12 @@ class SearchContentViewModel extends BaseViewModel {
 
   // 선택된 영화 정보를 ChannelVM에 속해는 변수에 저장
   void passMovieDataPassedLayer() {
-    print("데이터");
-    ChannelViewModel.to.selectedContentInfo.value =
+    final ContentModel content =
         contentSearchList.value![selectedContentIndex!.value];
+    content.type = "movie";
+
+    ChannelViewModel.to.registeredContentList.add(content);
+    Get.back();
   }
 
   /// Newtworking Methods
