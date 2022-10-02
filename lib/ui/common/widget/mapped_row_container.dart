@@ -13,6 +13,7 @@ class MappedRowContainer extends StatelessWidget {
   Widget build(BuildContext context) => Container(
         margin: const EdgeInsets.only(bottom: 8),
         child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             Text(
               title,

@@ -11,7 +11,7 @@ class ContentModel {
   final num voteAverage;
   final List<int>? genreIds;
   late String? type;
-  final List<String>? youtubeVideoIds; // custom
+  late List<String>? youtubeVideoIds; // custom
 
   ContentModel({
     this.type,
@@ -24,7 +24,7 @@ class ContentModel {
     required this.releaseDate,
     required this.voteAverage,
     required this.genreIds,
-    required this.youtubeVideoIds,
+    this.youtubeVideoIds,
   });
 
   // TMDB 영화 검색 정보 API
