@@ -4,6 +4,6 @@ class TabsBinding extends Bindings {
   @override
   void dependencies() {
     Get.put(TabsViewModel(), permanent: true);
-    Get.lazyPut(() => ChannelViewModel(), fenix: true);
+    Get.lazyPut(() => ChannelViewModel(Get.find(), Get.find()), fenix: true);
   }
 }

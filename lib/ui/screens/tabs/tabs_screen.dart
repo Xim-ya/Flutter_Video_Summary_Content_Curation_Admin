@@ -1,4 +1,5 @@
 import 'package:video_curation_admin/ui/screens/channel/channel_screen.dart';
+import 'package:video_curation_admin/ui/screens/channel/localWidget/add_youtube_id_dialog.dart';
 import 'package:video_curation_admin/utils/index.dart';
 
 class TabsScreen extends BaseScreen<TabsViewModel> {
@@ -9,7 +10,7 @@ class TabsScreen extends BaseScreen<TabsViewModel> {
     List<Widget> routeScreenList = [
       const ChannelScreen(),
       Container(),
-      Container()
+      Container(),
     ];
     return Scaffold(
       backgroundColor: Colors.white,
@@ -42,7 +43,9 @@ class TabsScreen extends BaseScreen<TabsViewModel> {
           ),
           const VerticalDivider(thickness: 1, width: 1),
           Obx(
-            () => Expanded(child: routeScreenList[vm.selectedIndex.value]),
+            () => Expanded(
+              child: routeScreenList[vm.selectedIndex.value],
+            ),
           ),
         ],
       ),
