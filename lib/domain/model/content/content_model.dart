@@ -1,3 +1,4 @@
+import 'package:video_curation_admin/data/api/tmdb/response/tmdb_drama_item_response.dart';
 import 'package:video_curation_admin/data/api/tmdb/response/tmdb_movie_item_response.dart';
 
 class ContentModel {
@@ -36,6 +37,23 @@ class ContentModel {
         title: response.title,
         overview: response.overview,
         releaseDate: response.release_date,
+        voteAverage: response.vote_average,
+        backDropUrl: response.backdrop_path,
+        posterUrl: response.poster_path,
+        genreIds: response.genre_ids,
+        youtubeVideoIds: null,
+        type: null,
+      );
+
+  // TMDB 영화 검색 정보 API
+  factory ContentModel.fromTvSearchListResponse(
+          TmdbDramaItemResponse response) =>
+      ContentModel(
+        adult: null,
+        id: response.id,
+        title: response.name,
+        overview: response.overview,
+        releaseDate: response.first_air_date,
         voteAverage: response.vote_average,
         backDropUrl: response.backdrop_path,
         posterUrl: response.poster_path,

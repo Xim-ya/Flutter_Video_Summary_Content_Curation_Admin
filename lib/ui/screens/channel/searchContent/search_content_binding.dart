@@ -4,6 +4,8 @@ import 'package:video_curation_admin/utils/index.dart';
 class SearchContentBinding extends Bindings {
   @override
   void dependencies() {
-    Get.lazyPut(() => SearchContentViewModel(Get.find()), fenix: true);
+    Get.lazyPut(
+        () => SearchContentViewModel(Get.find(), Get.find(), Get.find()),
+        fenix: true);
   }
 }

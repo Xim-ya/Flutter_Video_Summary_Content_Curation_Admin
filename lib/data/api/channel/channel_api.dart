@@ -16,17 +16,14 @@ class ChannelApi {
   Future<void> registerNewChannel(ChannelModel channelInfo) async {
     final docRef = db.collection("channels");
 
+    // contents json array object 포맷
     final List<Map<String, dynamic>> nestedList = channelInfo.contents!
         .map((e) => ChannelContentModel(
-            contentId: e.contentId,
-            title: e.title,
-            youtubeVideoIdList: ["null"]).toJson())
+                contentId: e.contentId,
+                title: e.title,
+                youtubeVideoIdList: e.youtubeVideoIdList)
+            .toJson())
         .toList();
-    // final nestedJsonData = channelInfo.contents!.map((e) => ChannelContentModel(
-    //         contentId: e.contentId,
-    //         title: e.title,
-    //         youtubeVideoIdList: e.youtubeVideoIdList)
-    //     .toJson());
 
     Map<String, dynamic> jsonData = {
       "name": channelInfo.name,
@@ -36,19 +33,6 @@ class ChannelApi {
       "viewCount": channelInfo.viewCount,
       "isFavorite": channelInfo.isFavorite,
       "contents": nestedList,
-
-      // "contents": [
-      //   ChannelContentModel(
-      //       contentId: "234",
-      //       title: "arang",
-      //       youtubeVideoIdList: ["asdf", "asd", "123as"]).toJson(),
-      // ]
-
-      // "contents": contents!.map((e) => ChannelContentModel(
-      //     contentId: e.contentId,
-      //     title: e.title,
-      //     youtubeVideoIdList: e.youtubeVideoIdList)
-      //     .toJson()),
     };
     docRef.doc(channelInfo.id).set(jsonData);
   }

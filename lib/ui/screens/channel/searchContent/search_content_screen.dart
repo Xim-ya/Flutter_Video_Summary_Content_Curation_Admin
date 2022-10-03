@@ -22,8 +22,19 @@ class SearchContentScreen extends BaseScreen<SearchContentViewModel> {
           padding: const EdgeInsets.only(top: 40),
           child: Column(
             children: <Widget>[
+              Obx(
+                () => ToggleButtons(
+                  onPressed: (int index) => vm.toggleContentTypeOption(index),
+                  isSelected: vm.contentTypeOptions,
+                  children: const <Widget>[
+                    Text("MOVIE"),
+                    Text("TV"),
+                  ],
+                ),
+              ),
+              AppSpace.size12,
               OutlinedTextFormField(
-                onSubmit: vm.loadMovieSearchList,
+                onSubmit: vm.loadContentSearchedList,
                 hintText: "ex) 어벤져스",
                 labelText: "컨텐츠 검색",
                 controller: vm.contentSearchFormController,
