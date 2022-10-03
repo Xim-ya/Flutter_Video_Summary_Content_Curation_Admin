@@ -3,8 +3,8 @@ import 'dart:developer';
 import 'package:video_curation_admin/domain/model/channel/channelModel.dart';
 import 'package:video_curation_admin/domain/model/content/channel_content_model.dart';
 import 'package:video_curation_admin/domain/model/content/content_model.dart';
-import 'package:video_curation_admin/domain/useCase/channel/load_youtube_channel_info_by_id.dart';
-import 'package:video_curation_admin/domain/useCase/channel/register_new_channel.dart';
+import 'package:video_curation_admin/domain/useCase/channel/load_youtube_channel_info_by_id_use_case.dart';
+import 'package:video_curation_admin/domain/useCase/channel/register_new_channel_use_case.dart';
 import 'package:video_curation_admin/ui/screens/channel/localWidget/add_youtube_id_dialog.dart';
 import 'package:video_curation_admin/utils/index.dart';
 
@@ -59,6 +59,7 @@ class ChannelViewModel extends BaseViewModel {
     List<ChannelContentModel> channelContents = _registeredContentList
         .map((e) => ChannelContentModel(
             contentId: e.id.toString(),
+            type: e.type,
             title: e.title,
             youtubeVideoIdList: e.youtubeVideoIds!))
         .toList();

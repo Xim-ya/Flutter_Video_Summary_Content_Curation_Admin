@@ -25,18 +25,26 @@ class ChannelModel {
     this.contents,
   });
 
-  Map<String, dynamic> toJson() => {
-        "name": name,
-        "description": description,
-        "subscribers": subscribers,
-        "thumbnailUrl": thumbnailUrl,
-        "viewCount": viewCount,
-        "contents": contents!.map((e) => ChannelContentModel(
+  Map<String, dynamic> toJson() {
+    // contents json array object 포맷
+    final List<Map<String, dynamic>> nestedList = contents!
+        .map((e) => ChannelContentModel(
                 contentId: e.contentId,
                 title: e.title,
                 youtubeVideoIdList: e.youtubeVideoIdList)
-            .toJson()),
-      };
+            .toJson())
+        .toList();
+
+    return {
+      "name": name,
+      "description": description,
+      "subscribers": subscribers,
+      "thumbnailUrl": thumbnailUrl,
+      "viewCount": viewCount,
+      "isFavorite": isFavorite,
+      "contents": nestedList,
+    };
+  }
 
   factory ChannelModel.fromResponse(YoutubeChannelResponse response) {
     final responseItem = response.items[0];
